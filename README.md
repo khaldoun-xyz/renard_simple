@@ -5,5 +5,4 @@ This is a work-in-progress to eventually replace <https://github.com/khaldoun-xy
 
 ## set up
 
-- in root, run `docker build -t renard .`
-- in root, run `docker run -p 8000:8000 --env-file=.env renard`
+- in root, run `ddocker-compose up --build`
