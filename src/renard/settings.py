@@ -13,7 +13,10 @@ TEMPLATE_DIR = BASE_DIR / "templates"
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 DEBUG = strtobool(os.getenv("DJANGO_DEBUG", "False"))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "0.0.0.0",
+    "renard.cx",
+]
 
 
 # Application definition
