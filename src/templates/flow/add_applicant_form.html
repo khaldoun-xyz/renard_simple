@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block body_block %}
+    <h2 class="mx-auto my-2 max-w-md text-2xl font-medium tracking-tight md:text-3xl">Provide your data</h2>
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-dark" value="Submit">
+    </form>
+{% endblock body_block %}

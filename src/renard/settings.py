@@ -17,7 +17,7 @@ ALLOWED_HOSTS = [
     "0.0.0.0",
     "renard.cx",
 ]
-
+CSRF_TRUSTED_ORIGINS = ["https://renard.cx", "http://renard.cx"]
 
 # Application definition
 
