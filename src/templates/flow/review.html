@@ -2,7 +2,9 @@
 {% extends "base.html" %}
 {% block body_block %}
     <div class="container">
-        <h2 class="mx-auto my-2 max-w-md text-2xl font-medium tracking-tight md:text-3xl">Review your data.</h2>
+        <h2 class="mx-auto my-2 max-w-md text-2xl font-medium tracking-tight md:text-3xl">
+            Please review & confirm your data.
+        </h2>
     </div>
     <div class="container" id="applicant">
         <div class="row pt-1">
@@ -23,7 +25,9 @@
                              data-bs-parent="#accordionMainApplicant">
                             <div class="accordion-body">
                                 <div class="ms-2 me-auto">
-                                    <div>Dummy text</div>
+                                    <div>Name: {{ applicant_data.first_name }}, {{ applicant_data.last_name }}</div>
+                                    <div>Insurance number: {{ applicant_data.insurance_number }}</div>
+                                    <div>Address: {{ applicant_data.street_number }}, {{ applicant_data.zip_code }} {{ applicant_data.city }}</div>
                                     <button class="btn btn-dark m-1" name='edit' type="submit">Edit</button>
                                 </div>
                             </div>

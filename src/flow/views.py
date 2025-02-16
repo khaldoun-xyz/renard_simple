@@ -20,13 +20,16 @@ def add_applicant(request: HttpRequest) -> HttpResponse:
 
 
 def review(request: HttpRequest, applicant_id) -> HttpResponse:
+    applicant_data = Applicant.objects.get(pk=applicant_id)
     form = ConsentForm(data=request.POST or None)
     if form.is_valid():
         obj = form.save(commit=False)
-        obj.applicant = Applicant.objects.get(pk=applicant_id)
+        obj.applicant = applicant_data
         obj.save()
         return redirect(to="flow:confirmation")
-    return render(request, "flow/review.html", {"form": form})
+    return render(
+        request, "flow/review.html", {"form": form, "applicant_data": applicant_data}
+    )
 
 
 def confirmation(request: HttpRequest) -> HttpResponse:
