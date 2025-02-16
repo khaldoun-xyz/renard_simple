@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% block body_block %}
-    <div class="container">
-        <h2 class="mx-auto my-2 max-w-md text-2xl font-medium tracking-tight md:text-3xl">
-            Please review & confirm your data.
-        </h2>
+    <div class="container pt-5 mt-5">
+        <div class="flex flex-col space-y-4 text-center">
+            <h2 class="mx-auto my-2 max-w-md text-2xl font-medium tracking-tight md:text-3xl">
+                Bitte überprüfen und bestätigen Sie Ihre Angaben.
+            </h2>
+        </div>
     </div>
-    <div class="container" id="applicant">
+    <div class="container pt-1 mt-5">
         <div class="row pt-1">
             <div class="col-12">
                 <div class="accordion" id="accordionMainApplicant">
@@ -17,7 +19,7 @@
                                     data-bs-toggle="collapse"
                                     data-bs-target="#collapseMainApplicant"
                                     aria-expanded="false"
-                                    aria-controls="collapseMainApplicant">Your data</button>
+                                    aria-controls="collapseMainApplicant">Ihre persönlichen Angaben</button>
                         </h2>
                         <div id="collapseMainApplicant"
                              class="accordion-collapse collapse"
@@ -26,9 +28,9 @@
                             <div class="accordion-body">
                                 <div class="ms-2 me-auto">
                                     <div>Name: {{ applicant_data.first_name }}, {{ applicant_data.last_name }}</div>
-                                    <div>Insurance number: {{ applicant_data.insurance_number }}</div>
-                                    <div>Address: {{ applicant_data.street_number }}, {{ applicant_data.zip_code }} {{ applicant_data.city }}</div>
-                                    <button class="btn btn-dark m-1" name='edit' type="submit">Edit</button>
+                                    <div>Versicherungsnummer: {{ applicant_data.insurance_number }}</div>
+                                    <div>Addresse: {{ applicant_data.street_number }}, {{ applicant_data.zip_code }} {{ applicant_data.city }}</div>
+                                    <button class="btn btn-dark m-1" name='edit' type="submit">Bearbeiten</button>
                                 </div>
                             </div>
                         </div>
@@ -38,16 +40,18 @@
         </div>
     </div>
     <div class="container" id="consent">
-        <div class="row pt-4">
-            <div class="col-12">
-                <form method="post">
-                    {{ form.as_p }}
-                    {% csrf_token %}
-                    <a href="https://www.google.de/" target="_blank">Schweigepflichtentbindung & Einwilligungserklärung</a>
-                    <br>
-                    <br>
-                    <input type="submit" class="btn btn-dark" value="Submit">
-                </form>
+        <div class="flex flex-col space-y-4 text-center">
+            <div class="row pt-4">
+                <div class="col-12">
+                    <form method="post">
+                        {{ form.as_p }}
+                        {% csrf_token %}
+                        <a href="https://www.google.de/" target="_blank">Schweigepflichtentbindung & Einwilligungserklärung</a>
+                        <br>
+                        <br>
+                        <input type="submit" class="btn btn-dark" value="Antrag abschicken">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
