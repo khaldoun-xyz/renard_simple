@@ -15,6 +15,7 @@ DEBUG = strtobool(os.getenv("DJANGO_DEBUG", "False"))
 
 ALLOWED_HOSTS = [
     "0.0.0.0",
+    "127.0.0.1",
     "renard.cx",
 ]
 CSRF_TRUSTED_ORIGINS = ["https://renard.cx", "http://renard.cx"]

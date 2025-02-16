@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block body_block %}
+    <div class="container">
+        <h2 class="mx-auto my-2 max-w-md text-2xl font-medium tracking-tight md:text-3xl">Review your data.</h2>
+    </div>
+    <div class="container" id="Applicant">
+        <div class="row pt-1">
+            <div class="col-12">
+                <div class="accordion" id="accordionMainApplicant">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingMainApplicant">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseMainApplicant"
+                                    aria-expanded="false"
+                                    aria-controls="collapseMainApplicant">Your data</button>
+                        </h2>
+                        <div id="collapseMainApplicant"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="headingMainApplicant"
+                             data-bs-parent="#accordionMainApplicant">
+                            <div class="accordion-body">
+                                <div class="ms-2 me-auto">
+                                    <div>Dummy text</div>
+                                    <button class="btn btn-dark m-1" name='edit' type="submit">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <button class="btn btn-dark m-1"
+                onclick="location.href='{% url 'flow:confirmation' %}'"
+                name='submit'
+                type="submit">Submit</button>
+    </div>
+{% endblock body_block %}

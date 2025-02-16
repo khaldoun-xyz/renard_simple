@@ -11,8 +11,13 @@ def index(request: HttpRequest) -> HttpResponse:
 def add_applicant(request: HttpRequest) -> HttpResponse:
     form = ApplicantForm(data=request.POST or None)
     if form.is_valid():
-        return redirect(to="flow:confirmation")
+        form.save()
+        return redirect(to="flow:review")
     return render(request, "flow/add_applicant_form.html", {"form": form})
+
+
+def review(request: HttpRequest) -> HttpResponse:
+    return render(request, template_name="flow/review.html")
 
 
 def confirmation(request: HttpRequest) -> HttpResponse:
