@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Applicant
+from .models import Applicant, Consent
 
 
 class ApplicantForm(forms.ModelForm):
@@ -14,3 +14,12 @@ class ApplicantForm(forms.ModelForm):
             "zip_code",
             "city",
         )
+
+
+class ConsentForm(forms.ModelForm):
+    class Meta:
+        model = Consent
+        fields = ("data_share",)
+        labels = {
+            "data_share": "Hiermit erteile ich die nachfolgend verlinkte Schweigepflichtentbindung und Einwilligungserklärung."
+        }

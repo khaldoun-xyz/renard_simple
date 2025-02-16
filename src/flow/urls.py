@@ -7,6 +7,6 @@ app_name = "flow"
 urlpatterns = [
     path("flow/", views.index, name="index"),
     path("add_applicant/", views.add_applicant, name="add_applicant"),
-    path("review/", views.review, name="review"),
+    path("review/<str:applicant_id>", views.review, name="review"),
     path("confirmation/", views.confirmation, name="confirmation"),
 ]

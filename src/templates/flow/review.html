@@ -4,7 +4,7 @@
     <div class="container">
         <h2 class="mx-auto my-2 max-w-md text-2xl font-medium tracking-tight md:text-3xl">Review your data.</h2>
     </div>
-    <div class="container" id="Applicant">
+    <div class="container" id="applicant">
         <div class="row pt-1">
             <div class="col-12">
                 <div class="accordion" id="accordionMainApplicant">
@@ -33,10 +33,18 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <button class="btn btn-dark m-1"
-                onclick="location.href='{% url 'flow:confirmation' %}'"
-                name='submit'
-                type="submit">Submit</button>
+    <div class="container" id="consent">
+        <div class="row pt-4">
+            <div class="col-12">
+                <form method="post">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <a href="https://www.google.de/" target="_blank">Schweigepflichtentbindung & Einwilligungserklärung</a>
+                    <br>
+                    <br>
+                    <input type="submit" class="btn btn-dark" value="Submit">
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock body_block %}
