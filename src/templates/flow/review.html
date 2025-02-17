@@ -8,7 +8,7 @@
             </h2>
         </div>
     </div>
-    <div class="container pt-1 mt-5">
+    <div class="container pt-1 mt-5" id="applicant">
         <div class="row pt-1">
             <div class="col-12">
                 <div class="accordion" id="accordionMainApplicant">
@@ -27,9 +27,39 @@
                              data-bs-parent="#accordionMainApplicant">
                             <div class="accordion-body">
                                 <div class="ms-2 me-auto">
-                                    <div>Name: {{ applicant_data.first_name }}, {{ applicant_data.last_name }}</div>
-                                    <div>Versicherungsnummer: {{ applicant_data.insurance_number }}</div>
-                                    <div>Addresse: {{ applicant_data.street_number }}, {{ applicant_data.zip_code }} {{ applicant_data.city }}</div>
+                                    <div>Name: {{ applicant.first_name }}, {{ applicant.last_name }}</div>
+                                    <div>Versicherungsnummer: {{ applicant.insurance_number }}</div>
+                                    <div>Addresse: {{ applicant.street_number }}, {{ applicant.zip_code }} {{ applicant.city }}</div>
+                                    <button class="btn btn-dark m-1" name='edit' type="submit">Bearbeiten</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-1 mt-1" id="application">
+        <div class="row pt-1">
+            <div class="col-12">
+                <div class="accordion" id="accordionMainApplication">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingMainApplication">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseMainApplication"
+                                    aria-expanded="false"
+                                    aria-controls="collapseMainApplication">Ihre Antrags-Daten</button>
+                        </h2>
+                        <div id="collapseMainApplication"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="headingMainApplication"
+                             data-bs-parent="#accordionMainApplication">
+                            <div class="accordion-body">
+                                <div class="ms-2 me-auto">
+                                    <div>Erstantrag: {{ application.first_application }}</div>
+                                    <div>Leistungen, die beantragt werden sollen: {{ application.selected_services }}</div>
                                     <button class="btn btn-dark m-1" name='edit' type="submit">Bearbeiten</button>
                                 </div>
                             </div>
