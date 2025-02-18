@@ -4,23 +4,36 @@ from .models import Applicant, Application, Consent
 
 
 class ApplicantForm(forms.ModelForm):
+    birth_date = forms.DateField(
+        input_formats=["%d.%m.%Y"],  # Add custom date format (DD.MM.YYYY)
+        widget=forms.DateInput(
+            format="%d.%m.%Y"
+        ),  # Optionally specify the input widget format
+    )
+
     class Meta:
         model = Applicant
         fields = (
             "insurance_number",
             "first_name",
             "last_name",
+            "birth_date",
             "street_number",
             "zip_code",
             "city",
+            "phonenumber",
+            "email",
         )
         labels = {
             "insurance_number": "Versicherungsnummer",
             "first_name": "Vorname",
             "last_name": "Nachname",
+            "birth_date": "Geburtsdatum",
             "street_number": "Strasse und Hausnummer",
             "zip_code": "Postleitzahl",
             "city": "Stadt",
+            "phonenumber": "Telefonnummer",
+            "email": "E-Mail-Adresse",
         }
 
 

@@ -1,15 +1,29 @@
+from datetime import date
+
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from multiselectfield import MultiSelectField
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Applicant(models.Model):
     id = models.AutoField(primary_key=True)
     insurance_number = models.CharField(max_length=20, default="")
     first_name = models.CharField(max_length=50)
+    birth_date = models.DateField(
+        null=True,
+        blank=True,
+        validators=[
+            MinValueValidator(limit_value=date(1900, 1, 1)),
+            MaxValueValidator(limit_value=date.today()),
+        ],
+    )
     last_name = models.CharField(max_length=50)
     street_number = models.CharField(max_length=100)
     zip_code = models.IntegerField()
     city = models.CharField(max_length=50)
+    phonenumber = PhoneNumberField(blank=True, region="DE")
+    email = models.EmailField(max_length=254)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

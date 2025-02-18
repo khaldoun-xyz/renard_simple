@@ -2,3 +2,5 @@ Django
 django-multiselectfield
 python-dotenv
 gunicorn
+phonenumbers
+django-phonenumber-field

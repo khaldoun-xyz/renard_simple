@@ -27,9 +27,24 @@
                              data-bs-parent="#accordionMainApplicant">
                             <div class="accordion-body">
                                 <div class="ms-2 me-auto">
-                                    <div>Name: {{ applicant.first_name }}, {{ applicant.last_name }}</div>
-                                    <div>Versicherungsnummer: {{ applicant.insurance_number }}</div>
-                                    <div>Addresse: {{ applicant.street_number }}, {{ applicant.zip_code }} {{ applicant.city }}</div>
+                                    <div>
+                                        Name: <i>{{ applicant.first_name }}, {{ applicant.last_name }}</i>
+                                    </div>
+                                    <div>
+                                        Versicherungsnummer: <i>{{ applicant.insurance_number }}</i>
+                                    </div>
+                                    <div>
+                                        Geburtsdatum: <i>{{ applicant.birth_date|date:"d.m.Y" }}</i>
+                                    </div>
+                                    <div>
+                                        Addresse: <i>{{ applicant.street_number }}, {{ applicant.zip_code }} {{ applicant.city }}</i>
+                                    </div>
+                                    <div>
+                                        Telefonnummer: <i>{{ applicant.phonenumber }}</i>
+                                    </div>
+                                    <div>
+                                        Email-Adresse: <i>{{ applicant.email }}</i>
+                                    </div>
                                     <button class="btn btn-dark m-1" name='edit' type="submit">Bearbeiten</button>
                                 </div>
                             </div>
@@ -58,8 +73,26 @@
                              data-bs-parent="#accordionMainApplication">
                             <div class="accordion-body">
                                 <div class="ms-2 me-auto">
-                                    <div>Erstantrag: {{ application.first_application }}</div>
-                                    <div>Leistungen, die beantragt werden sollen: {{ application.selected_services }}</div>
+                                    <div>
+                                        Erstantrag:
+                                        {% if application.first_application %}
+                                            <i>Ich beantrage einen Erstantrag.</i>
+                                        {% else %}
+                                            <i>Ich beantrage einen Wiederholungsantrag.</i>
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                        Leistungen, die beantragt werden sollen:
+                                        <ul>
+                                            {% for service in application.selected_services %}
+                                                <li>
+                                                    {% for value, label in application.SERVICE_OPTIONS %}
+                                                        {% if service == value %}<i>{{ label }}</i>{% endif %}
+                                                    {% endfor %}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
                                     <button class="btn btn-dark m-1" name='edit' type="submit">Bearbeiten</button>
                                 </div>
                             </div>
