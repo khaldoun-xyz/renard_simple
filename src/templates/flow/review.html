@@ -45,7 +45,9 @@
                                     <div>
                                         Email-Adresse: <i>{{ applicant.email }}</i>
                                     </div>
-                                    <button class="btn btn-dark m-1" name='edit' type="submit">Bearbeiten</button>
+                                    <button class="btn btn-dark m-1"
+                                            onclick="location.href='{% url 'flow:edit_applicant' applicant.id %}'"
+                                            type="submit">Bearbeiten</button>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +95,9 @@
                                             {% endfor %}
                                         </ul>
                                     </div>
-                                    <button class="btn btn-dark m-1" name='edit' type="submit">Bearbeiten</button>
+                                    <button class="btn btn-dark m-1"
+                                            onclick="location.href='{% url 'flow:edit_application' applicant.id %}'"
+                                            type="submit">Bearbeiten</button>
                                 </div>
                             </div>
                         </div>
