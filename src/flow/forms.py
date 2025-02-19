@@ -51,6 +51,11 @@ class ApplicationForm(forms.ModelForm):
 
 
 class ConsentForm(forms.ModelForm):
+    data_share = forms.BooleanField(
+        required=True,
+        label="Hiermit erteile ich die nachfolgend verlinkte Schweigepflichtentbindung und Einwilligungserklärung.",
+    )
+
     class Meta:
         model = Consent
         fields = ("data_share",)
